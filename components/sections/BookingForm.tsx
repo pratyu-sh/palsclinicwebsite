@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, AlertCircle, Loader, FileSpreadsheet } from "lucide-react";
+import { CheckCircle, AlertCircle, Loader } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -195,42 +195,9 @@ export default function BookingForm() {
               }}
             >
               Start with a consultation and understand your options with a treatment plan
-              designed around you. All entries are instantly synced for quick clinic response.
+              designed around you. Our team will review your request and contact you to
+              confirm your preferred slot.
             </p>
-
-            {/* Google Sheets / Excel Sync Badge */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.625rem",
-                padding: "0.625rem 1rem",
-                background: "rgba(46, 108, 112, 0.08)",
-                borderRadius: "var(--radius-md)",
-                border: "1px solid rgba(46, 108, 112, 0.2)",
-                marginBottom: "1.75rem",
-              }}
-            >
-              <FileSpreadsheet size={18} style={{ color: "var(--teal)" }} />
-              <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                <span style={{ fontSize: "0.78125rem", fontWeight: 700, color: "var(--primary)" }}>
-                  Instant Excel & Google Sheet Sync
-                </span>
-                <a
-                  href="/api/booking/excel"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontSize: "0.7rem",
-                    fontWeight: 700,
-                    color: "var(--teal)",
-                    textDecoration: "underline",
-                  }}
-                >
-                  Download Excel Sheet (.xlsx)
-                </a>
-              </div>
-            </div>
 
             {/* Expectations box */}
             <div
@@ -337,7 +304,7 @@ export default function BookingForm() {
                       color: "var(--ink)",
                     }}
                   >
-                    Request Submitted & Synced!
+                    Request Submitted!
                   </h3>
                   <p
                     style={{
@@ -510,7 +477,7 @@ export default function BookingForm() {
                     {formState === "submitting" ? (
                       <>
                         <Loader size={18} style={{ animation: "spin 1s linear infinite" }} />
-                        Submitting & Syncing...
+                        Submitting...
                       </>
                     ) : (
                       "Request Consultation"
@@ -526,7 +493,7 @@ export default function BookingForm() {
                       lineHeight: 1.5,
                     }}
                   >
-                    Form entries are saved instantly. Our team will contact you to confirm your slot.
+                    Our team will contact you to confirm your slot.
                   </p>
                 </motion.form>
               )}
